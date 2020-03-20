@@ -1,2 +1,30 @@
-*.class
 *.log
+/log
+/logs
+/target
+/tmp
+project/project
+project/target
+.history
+/dist
+/bin
+/RUNNING_PID
+.DS_Store
+.cache
+*.swp
+buildinfo.properties
+.class
+
+# IDEA:
+.idea
+*.iml
+*.ipr
+*.iws
+/out
+/.idea_modules
+
+# Eclipse:
+.settings
+.classpath
+.project
+.target
