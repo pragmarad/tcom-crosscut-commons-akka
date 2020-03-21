@@ -11,27 +11,50 @@ licenses := List(
   ("Apache License, Version 2.0",
     url("https://www.apache.org/licenses/LICENSE-2.0"))
 )
-homepage := Some(url("https://github.com/pragnmarad/tcom-crosscut-commons-akka"))
+homepage := Some(url("https://github.com/pragmarad/tcom-crosscut-commons-akka"))
 
 pomExtra :=
   <scm>
     <connection>
-      scm:git:git://github.com/pragnmarad/tcom-crosscut-commons-akka.git
+      scm:git:git://github.com/pragmarad/tcom-crosscut-commons-akka.git
     </connection>
     <url>
-      https://github.com/pragnmarad/tcom-crosscut-commons-akka
+      https://github.com/pragmarad/tcom-crosscut-commons-akka
     </url>
   </scm>
     <developers>
       <developer>
-        <id>pragnmarad</id>
+        <id>pragmarad</id>
         <name>PragnmaRAD</name>
         <email>pragmarad.tech@gmail.com</email>
       </developer>
     </developers>
 
+publishTo := Some(
+  "bintray" at
+    "https://api.bintray.com/maven/pragmarad-tech/" +
+      "tcom-scala-akka/tcom-crosscut-commons-akka;publish=1")
+credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
+publishMavenStyle := true
+
+// Skip publish sources and/or Javadoc
+/*
+packagedArtifacts in publish ~= { m =>
+  val classifiersToExclude = Set(
+    Artifact.SourceClassifier,
+    Artifact.DocClassifier
+  )
+  m.filter { case (art, _) =>
+    art.classifier.forall(c => !classifiersToExclude.contains(c))
+  }
+}
+*/
+
+//publishArtifact in Test := true // to add the tests JAR
+publishArtifact in Test := false
+
 lazy val commonSettings = Seq(
-  organization := "tech.pragmarad.tcpakkastreams",
+  organization := "tech.pragmarad.tcom",
   scalaVersion := curScalaVersion,
   // Test options:
   testOptions in Test := Seq(Tests.Argument(TestFrameworks.JUnit, "-a", "-v")),

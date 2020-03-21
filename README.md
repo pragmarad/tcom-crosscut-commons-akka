@@ -26,6 +26,10 @@ In order to publish in local repo you can use:
 ```
 sbt publishLocal
 ```
+To publish in bintray repo, use:
+```
+sbt publish
+```
 
 ## Logging
 SLF4J with logback impl used.
