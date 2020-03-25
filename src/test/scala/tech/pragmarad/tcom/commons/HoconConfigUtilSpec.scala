@@ -1,12 +1,15 @@
-package tech.pragmarad.tcpakkastreams.commons
+package tech.pragmarad.tcom.commons
 
 import com.typesafe.config.Config
 import org.scalatest.flatspec.AnyFlatSpec
 
 /**
  * Tests for Config
+ *
+ * @author pragmarad
+ * @since 2020-03-09
  */
-class ConfigLoaderSpec extends AnyFlatSpec {
+class HoconConfigUtilSpec extends AnyFlatSpec {
 
   "Config" should "load value from file" in {
     val configFileName = "application.test.conf"
@@ -19,7 +22,7 @@ class ConfigLoaderSpec extends AnyFlatSpec {
 
     // Check load from file config:
     val cfgString = s"${configSample2PropName} = ${configSample2PropValue}" // Add own conf values if needed
-    val cfg: Config = ConfigLoader.getConfig(cfgString, Option.apply(configFileName))
+    val cfg: Config = HoconConfigUtil.getConfig(cfgString, Option.apply(configFileName))
     val configPropResultValue1 = cfg.getString(configPropName1)
     assert(configPropResultValue1 == configPropValue1)
 
@@ -37,7 +40,7 @@ class ConfigLoaderSpec extends AnyFlatSpec {
     val configPropNameForSysName = s"${configPropNameOfRootNode}.actor-system-name"
     val expectedSysNamePropValue = "TcomSampleSys"
 
-    val cfg: Config = ConfigLoader.getConfig()
+    val cfg: Config = HoconConfigUtil.getConfig()
 
     // Check host:
     val configPropNameForHostResultValue = cfg.getString(configPropNameForHost)

@@ -1,8 +1,14 @@
 import sbt._
 
 object Dependencies {
-  val javaVersion = "11"
+  val javaVersion = "11" // NOTE: well, Java 8 can be used too, but let's enforce newer version..
   val curScalaVersion = "2.13.1"
+
+  //----------
+  // Command line option library:
+  val cmdLineOptionVersion = "1.0.0"
+  val cmdLineOptions = "com.monovore" %% "decline" % cmdLineOptionVersion
+  //----------
 
   //----------
   // Loggers:
@@ -11,20 +17,17 @@ object Dependencies {
     val logbackVersion = "1.2.3"
 
     val slf4j = "org.slf4j" % "slf4j-api" % slf4jVersion
-    //val logbackCore = "ch.qos.logback" % "logback-core" % logbackVersion
     val logbackClassic = "ch.qos.logback" % "logback-classic" % logbackVersion
 
     lazy val loggerDependencies: Seq[ModuleID] = Seq(slf4j, logbackClassic)
 
   }
-
   //----------
 
   //----------
   // Akka libs:
   object Akka {
-    val akkaVersion = "2.6.3"
-    //val akkaHttpVersion = "10.1.9"
+    val akkaVersion = "2.6.4"
     val akkaGroup = "com.typesafe.akka"
 
     val akkaStream = akkaGroup %% "akka-stream" % akkaVersion
@@ -40,7 +43,6 @@ object Dependencies {
     val cfgVersion = "1.4.0"
     val cfg = "com.typesafe" % "config" % cfgVersion
 
-    //lazy val akkaDependencies = Seq(akkaStream, akkaStreamTyped, akkaTyped, akkaTestKit)
     lazy val akkaDependencies: Seq[ModuleID] = Seq(cfg, akkaStream, akkaStreamTyped, akkaTyped, akkaTestKit, akkaStreamTestKit)
   }
 

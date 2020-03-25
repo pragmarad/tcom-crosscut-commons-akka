@@ -1,7 +1,8 @@
-package tech.pragmarad.tcpakkastreams.commons
+package tech.pragmarad.tcom.commons
 
 /**
  * Config related constants
+ *
  * @author pragmarad
  * @since 2020-03-09
  */
@@ -12,7 +13,7 @@ object ConfigCommonConstants {
    * Default values
    */
   object Default {
-    val CONFIG_FILE = "application." + APP_PREFIX + ".conf"
+    val CONFIG_FILE: String = "application." + APP_PREFIX + ".conf"
     val HOST = "127.0.0.1"
     val PORT = "1661"
     val ACTOR_SYSTEM_NAME = "TcpAkkaStreamsActorSys"

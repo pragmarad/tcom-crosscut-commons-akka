@@ -13,6 +13,8 @@ licenses := List(
 )
 homepage := Some(url("https://github.com/pragmarad/tcom-crosscut-commons-akka"))
 
+//--------------------
+// Code publish related info:
 pomExtra :=
   <scm>
     <connection>
@@ -53,6 +55,13 @@ packagedArtifacts in publish ~= { m =>
 //publishArtifact in Test := true // to add the tests JAR
 publishArtifact in Test := false
 
+//--------------------
+// Enable git plugin:
+enablePlugins(GitVersioning)
+
+// Add PGP signing of artifacts:
+releasePublishArtifactsAction := PgpKeys.publishSigned.value
+
 lazy val commonSettings = Seq(
   organization := "tech.pragmarad.tcom",
   scalaVersion := curScalaVersion,
@@ -61,6 +70,7 @@ lazy val commonSettings = Seq(
 
   //---------
   // Resolvers:
+  resolvers ++= ResolverList.projectResolvers,
 
   //---------
   //---------
@@ -132,6 +142,7 @@ scalacOptions in Test += "-Ywarn-value-discard:false" // since this often appear
 libraryDependencies in Global ++= Log.loggerDependencies
 libraryDependencies in Global ++= Tst.testDependencies
 libraryDependencies in Global ++= Akka.akkaDependencies
+libraryDependencies in Global += cmdLineOptions
 
 //---------
 // Module aggregator:

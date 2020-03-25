@@ -1,8 +1,9 @@
-package tech.pragmarad.tcpakkastreams.commons
+package tech.pragmarad.tcom.commons
 
 /**
  * String utils
- * @author pragmarad
+ *
+ * @author pragmarad, stack_overflow_folks
  * @since 2020-03-09
  */
 object StringUtil {
