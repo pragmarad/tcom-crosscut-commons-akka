@@ -13,6 +13,7 @@ object ConfigCommonConstants {
    * Default values
    */
   object Default {
+    val CONFIG_FILE_SYS_PROP_NAME: String = APP_PREFIX + ".conf.file"
     val CONFIG_FILE: String = "application." + APP_PREFIX + ".conf"
     val HOST = "127.0.0.1"
     val PORT = "1661"

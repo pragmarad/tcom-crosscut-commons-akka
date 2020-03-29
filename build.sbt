@@ -52,8 +52,8 @@ packagedArtifacts in publish ~= { m =>
 }
 */
 
-//publishArtifact in Test := true // to add the tests JAR
-publishArtifact in Test := false
+publishArtifact in Test := true // to add the tests JAR
+//publishArtifact in Test := false
 
 //--------------------
 // Enable git plugin:
@@ -61,6 +61,7 @@ enablePlugins(GitVersioning)
 
 // Add PGP signing of artifacts:
 releasePublishArtifactsAction := PgpKeys.publishSigned.value
+//--------------------
 
 lazy val commonSettings = Seq(
   organization := "tech.pragmarad.tcom",

@@ -25,7 +25,8 @@ object HoconConfigUtil {
    * @return Config instance
    */
   def getConfig(configAsString: String, configCustomFileOption: Option[String]): Config = {
-    val configFile = configCustomFileOption.getOrElse(ConfigCommonConstants.Default.CONFIG_FILE)
+    val configFileNameFromSysProps = System.getProperty(ConfigCommonConstants.Default.CONFIG_FILE_SYS_PROP_NAME)
+    val configFile = configCustomFileOption.getOrElse(StringUtil.getValueWithDefaultFallback(configFileNameFromSysProps, ConfigCommonConstants.Default.CONFIG_FILE))
     ConfigFactory.parseString(configAsString).withFallback(ConfigFactory.load(configFile))
   }
 
