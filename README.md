@@ -55,8 +55,8 @@ system property in form of **-Dlogback.configurationFile=/path/to/custom_logback
 NOTE: better source of history is git itself, only basic  / major updates are mentioned here.
 * 2020-03-07 - 0.0.1-SNAPSHOT - Init.
 * 2020-03-20 - [0.0.1](https://bintray.com/pragmarad-tech/tcom-scala-akka/tcom-crosscut-commons-akka/0.0.1) - ConfigLoader and StringUtil first version.
-* 2020-03-25 - [0.1.0] Args parser lib added, package name set to tcom for common naming conventions etc   
-* 2020-03-25 - [0.1.1] Support of tcom.conf.file system property for config file added.  
+* 2020-03-25 - [0.1.0] (https://bintray.com/pragmarad-tech/tcom-scala-akka/tcom-crosscut-commons-akka/0.1.0) Args parser lib added, package name set to tcom for common naming conventions etc   
+* 2020-03-25 - [0.1.1] (https://bintray.com/pragmarad-tech/tcom-scala-akka/tcom-crosscut-commons-akka/0.1.1) Support of tcom.conf.file system property for config file added.  
 
 # Roadmap
 1. (DONE) Add common utils and constants to this module.
